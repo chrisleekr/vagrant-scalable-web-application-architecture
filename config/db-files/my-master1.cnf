@@ -1,0 +1,24 @@
+[client]
+default-character-set   = utf8
+
+[mysqld]
+bind-address            = 0.0.0.0
+skip-name-resolve
+server-id              	= 1
+log_bin            		= /var/log/mysql/mysql-bin.log
+binlog_do_db			= wordpress
+datadir  				= /var/lib/mysql_vagrant
+
+character-set-client-handshake=false
+init_connect="SET collation_connection = utf8_general_ci"
+init_connect="SET NAMES utf8"
+character-set-server = utf8
+collation-server = utf8_general_ci
+
+
+[mysqldump]
+default-character-set = utf8
+
+
+[mysql]
+default-character-set   = utf8

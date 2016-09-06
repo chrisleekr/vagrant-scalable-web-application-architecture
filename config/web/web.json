@@ -1,0 +1,11 @@
+{
+    "service": {
+		"name": "web",
+		"tags": ["web"],
+		"port":80,
+		"check":{
+			"script":"curl localhost:80 >/dev/null 2>&1",
+			"interval":"10s"
+		}
+    }
+}

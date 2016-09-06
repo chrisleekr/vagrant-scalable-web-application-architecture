@@ -1,0 +1,17 @@
+{
+  "datacenter": "dc",
+  "data_dir": "/var/consul",
+  "log_level": "DEBUG",
+  "node_name": "consul3",
+
+  "bind_addr": "192.168.100.13",
+
+  "encrypt": "p4aaaTQtKji/Df3VrMMLzg==",
+  "server": true,
+  "bootstrap": false,
+  "enable_syslog": true,
+  "dns_config": {
+    "allow_stale": false
+  },
+  "start_join": ["192.168.100.11", "192.168.100.12", "192.168.100.13"]
+}

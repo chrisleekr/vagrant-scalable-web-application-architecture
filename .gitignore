@@ -1,0 +1,13 @@
+.idea/*
+.vagrant/*
+www/*
+!www/.gitkeep
+!www/server.php
+data/*
+!data/.gitkeep
+!data/master1
+!data/master2
+data/master1/*
+data/master2/*
+!data/master1/.gitkeep
+!data/master2/.gitkeep

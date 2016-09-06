@@ -1,0 +1,12 @@
+{
+    "service": {
+		"name":"web-lb",
+		"ID":"web-lb",
+		"tag":"web-lb",
+		"port":80,
+		"check":{
+			"script":"curl localhost:80 >/dev/null 2>&1",
+			"interval":"10s"
+		}
+    }
+}

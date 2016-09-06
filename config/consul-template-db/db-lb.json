@@ -1,0 +1,12 @@
+{
+  "service": {
+    "name":"db-lb",
+    "ID":"db-lb",
+    "tag":"db-lb",
+    "port":3306,
+    "check":{
+       "script": "mysql --host=db.service.consul --port=3306 --user=root --password=root -e 'select 1' >/dev/null 2>&1",
+      "interval":"5s"
+    }
+  }
+}

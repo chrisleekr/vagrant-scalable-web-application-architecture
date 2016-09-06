@@ -1,0 +1,23 @@
+{
+  "datacenter": "dc",
+  "data_dir": "/var/consul",
+  "log_level": "DEBUG",
+  "node_name": "web-lb",
+
+  "bind_addr": "192.168.100.20",
+
+  "encrypt": "p4aaaTQtKji/Df3VrMMLzg==",
+  "server": false,
+  "enable_syslog": true,
+  "start_join": ["192.168.100.11", "192.168.100.12", "192.168.100.13"],
+  "recursors":[
+    "192.168.100.11",
+    "192.168.100.12",
+    "192.168.100.13"
+  ],
+  "leave_on_terminate": true,
+  "dns_config": {
+    "allow_stale": true,
+    "max_stale": "1s"
+  }
+}

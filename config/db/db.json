@@ -1,0 +1,11 @@
+{
+    "service": {
+		"name": "db",
+		"tags": ["db"],
+		"port": 3306,
+		"check":{
+			"script":"mysql -uroot -proot -h localhost -P 3306 -e 'select 1' >/dev/null 2>&1",
+			"interval":"10s"
+		}
+    }
+}
