@@ -43,8 +43,8 @@ cluster = {
        :ip             => "192.168.100.20",
        :cpus           => 1, :mem => 256,
        :shellpath      => "bootstrap-web-lb.sh",
-       :consulconfig   => "/vagrant/config/consul-template-web.json",
-       :consulextra    => "/vagrant/config/consul-template-web",
+       :consulconfig   => "/vagrant/config/consul-web-lb.json",
+       :consulextra    => "/vagrant/config/consul-web-lb",
        :consului       => "N",
        :syncedfolders  => [],
        :ports          => []
@@ -89,8 +89,8 @@ cluster = {
        :ip             => "192.168.100.21",
        :cpus           => 1, :mem => 256,
        :shellpath      => "bootstrap-db-lb.sh",
-       :consulconfig   => "/vagrant/config/consul-template-db.json",
-       :consulextra    => "/vagrant/config/consul-template-db",
+       :consulconfig   => "/vagrant/config/consul-db-lb.json",
+       :consulextra    => "/vagrant/config/consul-db-lb",
        :consului       => "N",
        :syncedfolders  => [],
        :ports          => []

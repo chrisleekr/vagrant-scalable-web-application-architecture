@@ -1,8 +1,18 @@
-# vagrant-apache-mysql-scalable-architecture
-Vagrantfile to spin up web scalable architecture using Consul, Consul Template, nginx and HAProxy
+# Deploying scalable web application using Vagrant, Consul, Consul Template, nginx and HAProxy
+
+This is proof-of-concept project to spin up scalable web application architecture with Vagrant. 
+
+The project involves:
+
+* Vagrant for launching multiple VM instances and persistent storage
+* Consul for health checking and service discovery 
+* Consul Template for automated load balancer management 
+* nginx for HTTP server load balancing
+* HAProxy for MySQL server load balancing
+
+![Alt text](/screenshots/0_vagrant_consu_architecture_diagram.png?raw=true "Vagrant Consul Architecture Diagram")
 
 Note: This project is created for just practice. Not suitable for production use.
-
 
 # Prerequisites
 * Vagrant 1.8.1+: <http://www.vagrantup.com/>
@@ -33,8 +43,8 @@ If having the error message 'The guest additions on this VM do not match the ins
 ```
 
 # Features
-* Launch scalable architecture in single command
-* Used Consul to manage server nodes
+* Launch scalable web application architecture in single command
+* Used Consul to manage server nodes, service discovery and health checking
 * Configured web server load balancing with Consul Template + nginx reserve proxy
 * Persistent storage for web servers using Vagrant synced folder 
 * Configured database server load balancing with Consul Template + HAProxy
@@ -160,7 +170,7 @@ Following list depicts detailed environment configurations for each VM:
         * Same as Database server 1
 
 # How it works
-*Note* This section is a bit descriptive because I would like to make a note because I was struggling to setup this architecture. I want to make detailed instructions to not make same mistakes when create similar architectures.
+*Note* This section is a bit descriptive because I would like to make a note in detail about how it works. I want to make detailed instructions to not make same mistakes and for future reference.
 
 1. Consul servers will be launched first.
     1. Consul server 1(consulserver1.local) will be launched and provisioning script will be executed.
@@ -176,17 +186,17 @@ Following list depicts detailed environment configurations for each VM:
     11. Copy the Consul configurations
     12. Start Consul agent
     13. Consul server 2(consulserver2.local) will be launched and provisioning script will be executed.
-    14. Repeat aforementioned steps ii to viii
+    14. Repeat aforementioned steps 1-2 to 1-8
     15. Create the Consul configuration directory and consul log file
     16. Copy the Consul configurations
     17. Start Consul agent
     18. Consul server 3(consulserver3.local) will be launched and provisioning script will be executed.
-    19. Repeat aforementioned steps ii to viii
+    19. Repeat aforementioned steps 1-2 to 1-8
     20. Create the Consul configuration directory and consul log file
     21. Copy the Consul configurations
     22. Start Consul agent
 2. Web load balancer(web-lb.local) will be launched in following.
-    1. Repeat aforementioned steps 1-ii to 1-viii
+    1. Repeat aforementioned steps 1-2 to 1-8
     2. Create the Consul configuration directory and consul log file
     3. Copy the Consul configurations
     4. Start Consul agent
@@ -199,17 +209,17 @@ Following list depicts detailed environment configurations for each VM:
     11. Start consul-template and nginx will be started via consul-template
 3. Web servers will be launched next.
     1. Web server 1(web1.local) will be launched and provisioning script will be executed.
-    2. Repeat aforementioned steps 2-i to 2-vi
+    2. Repeat aforementioned steps 2-1 to 2-6
     3. Install apache & php5 packages
     4. Copy apache site configuration files
     5. Start apache server
     6. Download latest WordPress file and extract to /var/www
     7. Web server 2(web2.local) will be launched and provisioning script will be executed.
-    8. Repeat aforementioned steps 3-i to 3-v
+    8. Repeat aforementioned steps 3-1 to 3-5
     7. Web server 3(web3.local) will be launched and provisioning script will be executed.
-    8. Repeat aforementioned steps 3-i to 3-v
+    8. Repeat aforementioned steps 3-1 to 3-5
 4. Database load balancer(db-lb.local) will be launched next.
-    1. Repeat aforementioned steps 2-i to 2-vi
+    1. Repeat aforementioned steps 2-1 to 2-6
     2. Install MySQL packages - mysql-client
     3. Install HAProxy
     4. Create consul-template configuration folder and copy haproxy.conf template
@@ -218,7 +228,7 @@ Following list depicts detailed environment configurations for each VM:
     7. Start consul-template and HAProxy will be started via consul-template
 5. Database servers will be launched next.
     1. Database server 1(db1.local) will be launched and provisioning script will be executed.
-    2. Repeat aforementioned steps 2-i to 2-iv
+    2. Repeat aforementioned steps 2-1 to 2-4
     3. Install MySQL specific packages and settings - mysql-server mysql-client
     4. Setup MySQL server
         * Move initial database file to persistent directory
@@ -230,7 +240,7 @@ Following list depicts detailed environment configurations for each VM:
     5. Install and configure dnsmasq
     6. Start dnsmasq
     7. Database server 2(db2.local) will be launched and provisioning script will be executed.
-    8. Repeat aforementioned steps 5-i to 5-vi
+    8. Repeat aforementioned steps 5-1 to 5-4
     9. Setting up MySQL replication, starting with installing sshpass to access SSH to MySQL server 1
     10. Check MySQL server 1 connection
     11. Dump wordpress database from MySQL server 1 to /vagrant/data/wordpress.sql
