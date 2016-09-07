@@ -21,8 +21,8 @@ Note: This project is created for just practice. Not suitable for production use
 
 # Usage
 ```
-    $ git clone https://github.com/chrisleekr/vagrantvagrant-scalable-web-application-architecture.git
-    $ cd vagrantvagrant-scalable-web-application-architecture
+    $ git clone https://github.com/chrisleekr/vagrant-scalable-web-application-architecture.git
+    $ cd vagrant-scalable-web-application-architecture
     $ vagrant up
 ```
 [![asciicast](https://asciinema.org/a/br2ykgxy76rhim2hfkamca9wl.png?autoplay=1)](https://asciinema.org/a/br2ykgxy76rhim2hfkamca9wl)
